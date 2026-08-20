@@ -11,11 +11,11 @@ for test_case in range(1, T + 1):
     history = list(map(int,input().split()))
 
     history_ex = history[::-1]
-    timing = history[0]
-    sum = 0
+    timing = history_ex[0]
+    profit = 0
     for price in history_ex :
-        if timing < price :
+        if timing <= price :
             timing = price
         else :
-            sum += (timing-price)
-    print(f"#{test_case} {sum}")
+            profit += (timing-price)
+    print(f"#{test_case} {profit}")
