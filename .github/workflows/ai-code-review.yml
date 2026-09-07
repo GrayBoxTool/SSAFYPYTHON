@@ -3,7 +3,7 @@ name: Automated GPT Code Review & Auto Merge on Push
 on:
   push:
     branches-ignore:
-      - main # main 브랜치에 직접 푸시될 때는 실행 안 함
+      - main
 
 jobs:
   auto-pr-review-merge:
@@ -23,7 +23,6 @@ jobs:
         run: |
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           
-          # 이미 해당 브랜치로 열려있는 PR이 있는지 확인, 없으면 자동 생성
           PR_URL=$(gh pr list --head "$BRANCH_NAME" --base main --json url --jq '.[0].url')
           
           if [ -z "$PR_URL" ]; then
