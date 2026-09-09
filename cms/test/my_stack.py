@@ -34,3 +34,5 @@ print(my_pop())
 if top > -1:   #pop()
     top -= 1
     print(stack[top+1])
+
+    
