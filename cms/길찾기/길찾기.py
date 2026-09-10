@@ -1,34 +1,35 @@
 import sys
 sys.stdin = open("input.txt","r")
 
-def dfs(maze):
-    N=len(maze)
-    for i in range(N):
-        for j in range(N):
-            if maze[i][j] ==2:
-                sr=i
-                sc=j
-    stack=[]
-    stack.append((sr,sc))
-    visited = [[0]*N for _ in range(N)]
-    visited[sr][sc] = 1
+for _ in range(1,11):
+    tc, E= map(int,input().split())
+    nums = list(map(int,input().split()))
 
+    ls = list([[],[]] for _ in range(100))
+    for i in range(0,E*2,2):
+        if ls[nums[i]][0]:
+            ls[nums[i]][1]=nums[i+1]
+        else:
+            ls[nums[i]][0]=nums[i+1]
+
+    stack =[]
+    stack.append(0)
+    visited=[0 for _ in range(100)]
+    visited[0]=1
+    result = 0
     while stack:
-        cr,cc = stack[-1]
-        if maze[cr][cc] ==3 :
-            return 1
-        for dr, dc in [(-1,0),(1,0),(0,-1),(0,1)]:
-            nr = cr+dr
-            nc = cc+dc
-            if 0<=nr<N and 0<=nc <N and maze[nr][nc] != 0 and visited[nr][nc]==0:
-                stack.append((nr,nc))
-                visited[nr][nc] = 1
+        current = stack[-1]
+        for j in range(2):
+            if ls[current][j] and visited[ls[current][j]]==0:
+                stack.append(ls[current][j])
+                visited[ls[current][j]]=1
                 break
         else :
             stack.pop()
-    return 0
-
-for _ in range(1,11):
-    tc, N = map(int, input().split())
-    maze = list(map(int,input().split()))
-    print(f"{tc} {dfs(maze)}")
+        if visited[99]==1:
+            result = 1
+            break
+            
+    print(f"#{tc} {result}")
+            
+        
