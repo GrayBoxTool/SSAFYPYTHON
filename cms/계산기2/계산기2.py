@@ -26,7 +26,8 @@ for tc in range(1, 11):
             else:
                 while top > -1 and func[stack[top]]>=func[x]:
                     top -=1
-                    fx += stack[top+1]
+                    fx_top +=1
+                    fx[fx_top] = stack[top+1]
                 top+=1
                 stack[top]=x
 
@@ -40,7 +41,7 @@ for tc in range(1, 11):
     stack = [0] * N
     top = -1
 
-    for i in range(len(fx)):
+    for i in range(fx_top+1):
         if fx[i] not in "+*":
             top +=1
             stack[top]=int(fx[i])
