@@ -31,3 +31,6 @@ front= rear =-1
 for i in range(1000000):
     q.append(i)
 print(len(q))
+for _ in range(1000000):
+    q.pop(0)
+print(len(q))
