@@ -1,8 +1,4 @@
 import sys
-<<<<<<< HEAD
-sys.stdin = open("sample_input.txt","r")
-
-=======
 sys.stdin = open("sample_input.txt", "r")
 
 T = int(input())
@@ -55,4 +51,3 @@ for tc in range(1, T + 1):
                 cnt += 1
 
     print(f"#{tc} {cnt}")
->>>>>>> 802e0fe8ce44f33c172cc7fb12e12b6ac8318d4c
