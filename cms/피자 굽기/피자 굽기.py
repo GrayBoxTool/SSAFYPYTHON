@@ -34,4 +34,4 @@ for tc in range(1,T+1):
                         hwaduck_in[now]=pizza_num
                         hwaduck[now]=pizzas.pop(0)
         return last_num
-    print(f"{tc} {solve(N,pizzas)}")
+    print(f"#{tc} {solve(N,pizzas)}")

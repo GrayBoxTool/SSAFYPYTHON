@@ -22,4 +22,4 @@ for tc in range(1,T+1):
     if length> max_length:
         max_length=length
 
-    print(f"{tc} {max_length}")
+    print(f"#{tc} {max_length}")
