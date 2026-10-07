@@ -37,7 +37,7 @@ for tc in range(1,T+1):
 
 
     for i in range(N):
-        for j in range(i,N):
+        for j in range(i+1,N):
             bridge.append(((i,j),(abs(x[j]-x[i])**2+abs(y[j]-y[i])**2)))
 
     bridge.sort(key=lambda x : x[1])
